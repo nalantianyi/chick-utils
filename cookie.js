@@ -3,12 +3,12 @@
  * 浏览器操作cookie基础封装
  */
 export default {
-    //获取单挑cookie记录
+    //获取单条cookie记录
     get(n){
         let m = document.cookie.match(new RegExp("(^| )" + n + "=([^;]*)(;|$)"));
         return !m ? "" : decodeURIComponent(m[2]);
     },
-    //设置单挑cookie记录
+    //设置单条cookie记录
     set(name, value, domain, path, hour){
         let expire = new Date();
         expire.setTime(expire.getTime() + (hour ? 3600000 * hour : 30 * 24 * 60 * 60 * 1000));
